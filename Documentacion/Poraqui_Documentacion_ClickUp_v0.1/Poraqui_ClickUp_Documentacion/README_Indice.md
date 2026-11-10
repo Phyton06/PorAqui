@@ -22,6 +22,7 @@
 - [02 Reglas de negocio](02_reglas_negocio.md)
 - [03 Roles y permisos](03_roles_permisos.md)
 - [04 Flujos de usuario](04_flujos_usuario.md)
+- [19 Matriz de actores, permisos y flujos](19_matriz_actores_permisos_flujos.md)
 
 ### Técnica
 - [05 Arquitectura](05_arquitectura.md)
