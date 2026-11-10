@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PorAquí — Design board v0.2</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --ink: #19332f;
+      --muted: #53615b;
+      --paper: #f4f6f3;
+      --surface: #fff;
+      --line: #e2e9e4;
+      --orange: #b84321;
+      --orange-dark: #a63b1d;
+      --orange-pale: #fff0e8;
+      --green: #32705b;
+      --green-pale: #eaf3ed;
+      --blue: #326f9c;
+      --blue-pale: #eaf3f8;
+      --yellow: #e7b84e;
+      --shadow: none;
+      font-family: "Atkinson Hyperlegible", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+    }
+    body { position:relative; margin: 0; width: 3900px; min-height: 2100px; background: #e8ece8; }
+    .board-head { position: absolute; left: 72px; top: 32px; height: 72px; display: flex; align-items: center; gap: 16px; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: var(--orange); display: grid; place-items: center; color: white; font-weight: 800; font-size: 22px; }
+    .board-head strong { font-size: 20px; letter-spacing: -.3px; }
+    .board-head span { color: #53615b; font-size: 14px; }
+    .search, .profile, .auth, .merchant, .rating-screen, .mobile-search, .mobile-profile, .mobile-merchant { position: absolute; }
+    .artboard { position: relative; overflow: hidden; background: var(--paper); border-radius: 24px; box-shadow: none; border: 1px solid #dfe6e0; }
+    .profile { display:flex; flex-direction:column; gap:16px; background:#fff; }
+    .desktop { width: 1440px; height: 960px; }
+    .mobile { width: 390px; height: 844px; border-radius: 32px; border: 4px solid #263a34; background: white; display:flex; flex-direction:column; }
+    .topbar { position:relative; height:80px; padding:0 64px; background:#fff; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .wordmark { height:40px; display: flex; align-items: center; gap: 12px; color: var(--ink); font-weight: 800; font-size: 22px; line-height:24px; letter-spacing: -.7px; }
+    .wordmark .brand-mark { width: 30px; height: 30px; font-size: 16px; border-radius: 10px 10px 10px 3px; }
+    .navlinks { position:absolute; left:400px; top:18px; width:560px; height:44px; display:flex; align-items:center; justify-content:space-between; gap:16px; color:#53615b; font-size:15px; line-height:24px; }
+    .navlinks strong, .navlinks span { line-height:24px; }
+    .navlinks strong { color: var(--ink); }
+    .user-chip { border:1px solid var(--line); border-radius:9999px; min-height:44px; padding:8px 16px; display:flex; gap:12px; align-items:center; font-size:14px; line-height:24px; background:#fff; }
+    .avatar { width: 30px; height: 30px; border-radius: 50%; background: #d9e8dc; color: #335948; display: grid; place-items: center; font-weight: 700; }
+    .hero { padding: 56px 80px 32px; background: #f8f6ef; border-bottom: 1px solid #ebe9df; display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+    .eyebrow { color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: 42px; line-height: 48px; letter-spacing: -1.5px; color: var(--ink); }
+    .hero p { margin: 0; color: var(--muted); font-size: 17px; }
+    .searchbar { height: 64px; display: flex; margin-top: 16px; width: 1000px; max-width: 1000px; border: 1px solid #dce4dd; border-radius: 16px; background: white; box-shadow: none; align-items: center; padding: 8px; }
+    .search-input { flex: 1; min-height:44px; display:flex; align-items:center; color: #283d35; font-size: 17px; }
+    .location { color: #53615b; border-left: 1px solid var(--line); padding: 0 24px; font-size: 15px; line-height:24px; }
+    .primary { display: inline-flex; align-items: center; justify-content: center; height:48px; line-height:24px; background: var(--orange); color: white; font-weight: 700; font-size: 15px; border-radius: 12px; padding: 12px 24px; white-space: nowrap; }
+    .content { padding: 24px 80px 56px; display:flex; flex-direction:column; gap:16px; }
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0; }
+    .section-head h2 { font-size: 23px; margin: 0; letter-spacing: -.5px; }
+    .link { display:inline-flex; align-items:center; min-height:44px; color: var(--green); font-size: 14px; font-weight: 700; }
+    .chips { display: flex; align-items:center; min-height:44px; gap: 12px; margin-bottom: 24px; }
+    .chip { display:inline-flex; align-items:center; height:44px; line-height:24px; border: 1px solid #e1e8e2; border-radius: 9999px; background: white; padding: 8px 16px; font-size: 13px; color: #4e6057; }
+    .chip.active { background: var(--green-pale); border-color: #cfe1d4; color: #285a45; font-weight: 700; }
+    .results { display: flex; gap: 16px; }
+    .business-card { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: white; flex: 1; display:flex; flex-direction:column; gap:8px; }
+    .photo { height: 168px; position: relative; overflow: hidden; background: #d7e5da; }
+    .photo.market { background: #d7e6da; }
+    .photo.bread { background: #e8c79e; }
+    .photo.flower { background: #dfd0d7; }
+    .photo-caption { position: absolute; left: 16px; bottom: 12px; font-size: 12px; letter-spacing: .08em; font-weight: 800; color: #39554a; }
+    .photo .sun { position: absolute; right: 36px; top: 24px; width: 56px; height: 56px; border-radius: 50%; background: rgba(255,248,220,.8); }
+    .photo .arch { position: absolute; left: 24px; bottom: 0; width: 128px; height: 104px; border-radius: 64px 64px 0 0; background: rgba(255,255,255,.42); }
+    .card-body { padding: 16px; display:flex; flex-direction:column; gap:8px; }
+    .card-title { font-weight: 800; font-size: 17px; margin:0; }
+    .card-meta { color: #53615b; font-size: 13px; }
+    .rating { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 13px; color: #53615b; }
+    .stars { color: #8a590b; letter-spacing: 1px; font-size: 16px; }
+    .verified { margin-left: auto; color: var(--green); background: var(--green-pale); border-radius: 9999px; padding: 4px 8px; font-size: 12px; font-weight: 700; }
+    .profile-hero { height: 248px; margin: 28px 56px 0; border-radius: 16px; background: #d9e6d8; position: relative; overflow: hidden; }
+    .profile-caption { position: absolute; left: 24px; bottom: 20px; color: #39554a; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+    .profile-main { display: flex; justify-content: space-between; gap: 32px; padding: 12px 8px; margin:0 56px; }
+    .profile-main > div:first-child { flex: 1; display:flex; flex-direction:column; gap:8px; align-items:flex-start; }
+    .profile-name { font-size: 32px; font-weight: 800; letter-spacing: -1px; margin: 0; }
+    .profile-location { color: #53615b; font-size: 15px; }
+    .rating-summary { display: flex; align-items: center; gap: 8px; margin-top: 16px; height:28px; }
+    .rating-summary > * { line-height:24px; }
+    .rating-number { font-size: 24px; font-weight: 800; }
+    .subtle { color: var(--muted); font-size: 13px; }
+    .contact-panel { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction:column; gap: 8px; align-self: start; width:310px; }
+    .outline-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border: 1px solid #ccdbd0; background: white; color: #2c614a; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700; text-align: center; }
+    .profile-grid { display: flex; flex-wrap:wrap; gap: 12px; border-top: 1px solid var(--line); padding: 20px 0 0; margin:0 56px; }
+    .profile-grid .section-head { flex:0 0 100%; }
+    .item { width:48%; flex:0 0 48%; min-height:72px; padding:12px; border:1px solid var(--line); border-radius:12px; background:#fff; display:flex; gap:12px; align-items:center; }
+    .item-swatch { width: 48px; height: 48px; border-radius: 8px; background: #ead3ae; }
+    .item:nth-child(2) .item-swatch { background: #d8e5d8; }
+    .item:nth-child(3) .item-swatch { background: #d9e4ed; }
+    .item:nth-child(4) .item-swatch { background: #ead5d2; }
+    .item strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .map-box { background: #e6f0eb; border: 1px solid #d3e1d8; border-radius: 12px; height: 176px; position: relative; overflow: hidden; }
+    .map-box:before,.map-box:after { content:""; position:absolute; background:#fff; opacity:.8; transform:rotate(-18deg); }
+    .map-box:before { width:130%; height:18px; top:67px; left:-24px; }
+    .map-box:after { width:18px; height:130%; left:166px; top:-20px; transform:rotate(28deg); }
+    .pin { position: absolute; left: 130px; top: 65px; width: 28px; height: 28px; border: 7px solid var(--blue); background: white; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); z-index: 1; }
+    .sidebar { position:absolute; top:0; left:0; width:240px; height:100%; background:#fff; border-right:1px solid var(--line); padding:28px 20px; display:flex; flex-direction:column; gap:8px; }
+    .sidebar .wordmark { margin:0 0 32px 8px; font-size:20px; }
+    .side-link { display:flex; align-items:center; min-height:44px; padding:12px; border-radius:8px; color:#53615b; font-size:14px; margin:4px 0; }
+    .side-link.selected { background:var(--green-pale); color:#285a45; font-weight:800; }
+    .side-caption { color:#53615b; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; margin:24px 12px 8px; }
+    .panel-main { position:absolute; left:240px; right:0; top:0; bottom:0; padding:40px 48px; display:flex; flex-direction:column; gap:16px; }
+    .panel-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; }
+    .panel-top h2 { margin:0; font-size:28px; letter-spacing:-.8px; }
+    .panel-top > div:first-child { width:640px; flex:0 0 640px; display:flex; flex-direction:column; gap:8px; align-items:flex-start; }
+    .panel-top .eyebrow { width:280px; white-space:nowrap; }
+    .panel-top h2 { width:320px; white-space:nowrap; }
+    .panel-top .subtle { width:640px; white-space:nowrap; }
+    .notice { display:flex; align-items:center; gap:8px; color:#385447; background:#edf5ef; border:1px solid #d8e9dc; padding:12px 16px; border-radius:12px; font-size:13px; margin-bottom:24px; }
+    .table { width:100%; background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+    .table-head,.table-row { display:flex; align-items:center; padding:16px; }
+    .table-head > *, .table-row > * { flex:0 0 auto; }
+    .table-head > :first-child, .table-row > :first-child { width:44%; }
+    .table-head > :nth-child(2), .table-row > :nth-child(2) { width:15%; }
+    .table-head > :nth-child(3), .table-row > :nth-child(3) { width:25%; }
+    .table-head > :nth-child(4), .table-row > :nth-child(4) { width:12%; }
+    .table-head { color:#53615b; font-size:12px; text-transform:uppercase; letter-spacing:.07em; background:#fafbf9; border-bottom:1px solid var(--line); }
+    .table-row { min-height:72px; border-bottom:1px solid #edf0ed; font-size:14px; }
+    .table-row:last-child { border-bottom:0; }
+    .product-name { display:flex; align-items:center; gap:12px; font-weight:700; padding-right:16px; }
+    .thumb { width:44px; height:44px; border-radius:8px; background:#ead3ae; }
+    .table-row:nth-child(3) .thumb { background:#d8e5d8; }
+    .table-row:nth-child(4) .thumb { background:#d9e4ed; }
+    .status { display:inline-flex; align-items:center; height:32px; line-height:24px; border-radius:9999px; background:#eaf3ed; color:#285a45; padding:4px 12px; font-size:12px; width:max-content; font-weight:700; }
+    .edit-link { display:inline-flex; align-items:center; min-height:44px; color:#285a45; font-weight:700; }
+    .device-status { height:40px; padding:8px 16px 0; display:flex; justify-content:space-between; color:#263b35; font-size:12px; font-weight:700; }
+    .mobile-header { height:56px; display:flex; align-items:center; justify-content:flex-start; gap:12px; padding:0 16px; border-bottom:1px solid var(--line); line-height:24px; }
+    .mobile-header > span:last-child { margin-left:auto; }
+    .mobile-header .wordmark { font-size:18px; gap:8px; }
+    .mobile-header .brand-mark { width:24px; height:24px; font-size:12px; border-radius:8px; }
+    .mobile-content { flex:0 0 676px; height:676px; min-height:0; padding:16px; display:flex; flex-direction:column; gap:8px; }
+    .mobile-kicker { font-size:12px; color:#53615b; font-weight:700; }
+    .mobile-title { margin:0; font-size:24px; line-height:28px; letter-spacing:-.6px; }
+    .mobile-photo { height:152px; border-radius:12px; margin:16px 0; background:#e8c79e; position:relative; }
+    .mobile-row { display:flex; align-items:center; justify-content:space-between; }
+    .mobile-rating { display:flex; align-items:center; gap:8px; height:24px; line-height:24px; margin:8px 0 16px; color:#53615b; font-size:12px; }
+    .mobile-rating .stars { font-size:14px; }
+    .mobile-section { border-top:1px solid var(--line); padding-top:16px; margin-top:8px; display:flex; flex-direction:column; gap:8px; }
+    .mobile-section h3 { font-size:16px; margin:0 0 8px; }
+    .mobile-product { display:flex; align-items:flex-start; gap:12px; padding:8px 0; border-bottom:1px solid #eef1ee; font-size:12px; }
+    .mobile-product .thumb { width:40px; height:40px; flex:0 0 auto; }
+    .mobile-product small { display:block; color:#53615b; margin-top:4px; font-size:12px; }
+    .mobile-cta { width:100%; margin-top:16px; font-size:14px; }
+    .verify-badge { border-radius:9999px; background:var(--green-pale); color:#285a45; padding:8px; font-size:12px; font-weight:700; }
+    .review-title { font-size:22px; margin:16px 0 8px; letter-spacing:-.5px; }
+    .review-copy { color:#53615b; font-size:13px; line-height:20px; margin:0 0 16px; }
+    .review-business { display:flex; align-items:center; gap:12px; background:#f7f8f5; border:1px solid var(--line); border-radius:12px; padding:12px; }
+    .review-business .thumb { width:43px; height:43px; flex:0 0 auto; }
+    .review-business strong { display:block; font-size:13px; }
+    .review-business small { display:block; font-size:12px; color:#53615b; margin-top:4px; }
+    .field-label { display:block; font-size:12px; font-weight:800; margin:20px 0 8px; }
+    .star-picker { display:flex; gap:8px; }
+    .star-choice { width:52px; height:48px; display:grid; place-items:center; border:1px solid #e0e7e1; border-radius:12px; background:white; color:#53615b; font-size:22px; }
+    .star-choice.selected { color:#9b6210; background:#fff6df; border-color:#e8cb7c; }
+    .privacy-note { display:block; font-size:12px; line-height:16px; color:#53615b; margin-top:16px; }
+    .bottom-nav { position:absolute; left:0; right:0; top:776px; height:64px; display:flex; align-items:center; justify-content:space-around; border-top:1px solid var(--line); background:#fff; color:#53615b; font-size:12px; }
+    .bottom-nav > span, .bottom-nav > strong { height:24px; line-height:24px; }
+    .bottom-nav strong { color:#285a45; }
+    .mobile-screen-title { margin:0; font-size:24px; line-height:28px; }
+    .mobile-searchbar { height:48px; display:flex; align-items:center; gap:8px; padding:8px; border:1px solid #cbd8ce; border-radius:12px; background:#fff; color:#53615b; font-size:12px; }
+    .mobile-searchbar .search-input { flex:1; }
+    .mobile-results-head { display:flex; justify-content:space-between; align-items:center; min-height:44px; margin-top:8px; }
+    .mobile-result { display:flex; align-items:flex-start; gap:12px; padding:8px; background:#fff; border:1px solid var(--line); border-radius:12px; min-height:64px; }
+    .mobile-result .photo-mini { width:48px; height:48px; margin-top:8px; flex:0 0 48px; border-radius:8px; background:#e8c79e; }
+    .mobile-result:nth-of-type(2) .photo-mini { background:#d7e6da; }
+    .mobile-result:nth-of-type(3) .photo-mini { background:#dfd0d7; }
+    .mobile-result-copy { flex:1; display:flex; flex-direction:column; gap:4px; }
+    .mobile-result-copy strong { font-size:12px; }
+    .mobile-business-cover { height:104px; border-radius:12px; background:#d9e6d8; }
+    .mobile-action-row { display:flex; gap:8px; }
+    .mobile-action-row .outline-btn { flex:1; min-height:48px; padding:8px; font-size:12px; justify-content:flex-start; padding-left:12px; line-height:24px; }
+    .mobile-management-row { display:flex; align-items:center; gap:8px; padding:8px; background:#fff; border:1px solid var(--line); border-radius:12px; min-height:60px; }
+    .mobile-management-row .thumb { width:40px; height:40px; flex:0 0 40px; }
+    .mobile-management-copy { flex:1; display:flex; flex-direction:column; gap:4px; }
+    .mobile-management-copy strong { font-size:12px; }
+    .mobile-management-row .outline-btn { min-height:44px; padding:8px; font-size:12px; line-height:24px; }
+    .mobile-notice { background:#edf5ef; color:#385447; border-radius:8px; padding:8px 12px; font-size:12px; line-height:16px; }
+    .mobile-small-action { display:flex; justify-content:space-between; align-items:center; min-height:44px; }
+    .mobile-map-link { display:inline-flex; align-items:center; min-height:44px; color:var(--green); font-size:12px; line-height:24px; font-weight:700; }
+    .contact-panel .primary { justify-content:flex-start; padding-left:16px; }
+    .mobile-profile > .mobile-content > .primary { justify-content:flex-start; padding-left:16px; }
+    .review-business { align-items:flex-start; }
+    .review-business > span { flex:1; min-width:0; line-height:24px; white-space:normal; }
+    .panel-heading-meta { display:flex; align-items:center; height:44px; line-height:24px; gap:12px; }
+    .auth-modal { position:relative; width:100%; height:730px; background:rgba(25,51,47,.28); display:flex; align-items:center; justify-content:center; padding:20px; }
+    .auth-card { width:100%; height:490px; background:white; border-radius:16px; padding:20px 16px; box-shadow:none; display:flex; flex-direction:column; gap:12px; }
+    .auth-card h2 { font-size:21px; letter-spacing:-.5px; margin:0; }
+    .auth-card p { font-size:12px; line-height:18px; color:#53615b; margin:0; }
+    .field { margin-top:4px; display:flex; flex-direction:column; gap:8px; }
+    .field label { display:block; font-size:12px; font-weight:800; margin-bottom:8px; }
+    .input { border:1px solid #dce5dd; border-radius:8px; height:44px; padding:12px; font-size:12px; color:#53615b; background:#fff; }
+    .auth-card .primary { width:100%; margin-top:16px; padding:16px; }
+    .separator { display:flex; align-items:center; gap:8px; color:#53615b; font-size:12px; margin:16px 0; }
+    .separator:before,.separator:after { content:""; height:1px; background:#e5ebe6; flex:1; }
+    .notice-small { display:flex; gap:8px; background:#edf5ef; border-radius:8px; padding:12px; font-size:12px; line-height:16px; color:#385447; margin-top:16px; }
+    .notice-small span:last-child { flex:1; }
+    .annotation { position:absolute; color:#385447; font-size:12px; font-weight:700; }
+    .annotation:before { content:""; display:inline-block; width:20px; height:1px; background:#91a097; vertical-align:middle; margin-right:8px; }
+    .item { width:48%; flex:0 0 48%; }
+    .search { left:48px; top:120px; }
+    .profile { left:1526px; top:120px; }
+    .mobile-search { left:3004px; top:120px; }
+    .auth { left:3478px; top:120px; }
+    .merchant { left:48px; top:1122px; }
+    .mobile-profile { left:1526px; top:1122px; }
+    .mobile-merchant { left:1963px; top:1122px; }
+    .rating-screen { left:2400px; top:1122px; }
+  </style>
+</head>
+<body>
+  <div class="board-head"><div class="brand-mark">P</div><strong>PorAquí</strong><span>Exploración visual · v0.2 · datos de ejemplo</span></div>
+    <div class="artboard desktop search">
+        <header class="topbar"><div class="wordmark"><div class="brand-mark"></div>PorAquí</div><nav class="navlinks"><strong>Explorar · S-01</strong><span>Cómo funciona · S-02</span><span>Para comercios · C-01</span></nav><div class="user-chip"><span>Iniciar sesión · A-01</span><span>P</span></div></header>
+        <section class="hero"><div class="eyebrow">Santiago Ixcuintla, Nayarit</div><h1>Lo que buscas, cerca de ti.</h1><p>Negocios locales, productos y servicios en un solo lugar.</p><div class="searchbar"><span class="search-input">¿Qué necesitas encontrar? · S-04</span><span class="location">Santiago Ixcuintla⌄</span><span class="primary">Buscar · S-05</span></div></section>
+        <section class="content"><div class="section-head"><h2>Explora por categoría · S-06</h2><span class="link">Ver todas · S-09</span></div><div class="chips"><span class="chip active">Todo</span><span class="chip">Alimentos</span><span class="chip">Hogar</span><span class="chip">Salud</span><span class="chip">Servicios</span><span class="chip">Ropa y accesorios</span></div><div class="section-head"><h2>Negocios cerca de ti</h2><span class="link">Ver en el mapa · S-07</span></div><div class="results">
+          <article class="business-card"><div class="photo bread"></div><strong class="card-title">Panadería La Espiga · S-08</strong><span class="card-meta">Panadería · Centro · Verificado</span><span class="rating">★★★★★ · 4.8 · 12 calificaciones</span></article>
+          <article class="business-card"><div class="photo market"></div><strong class="card-title">Abarrotes El Parque · S-08</strong><span class="card-meta">Abarrotes · Col. Centro · Verificado</span><span class="rating">★★★★☆ · 4.5 · 8 calificaciones</span></article>
+          <article class="business-card"><div class="photo flower"></div><strong class="card-title">Florería Nayar · S-08</strong><span class="card-meta">Flores y regalos · Centro · Verificado</span><span class="rating">★★★★★ · 5.0 · 3 calificaciones</span></article>
+        </div></section>
+      </div>
+
+    <div class="artboard desktop profile" style="background:#fff">
+        <header class="topbar"><div class="wordmark"><div class="brand-mark"></div>PorAquí</div><nav class="navlinks"><strong>Explorar · S-01</strong><span>Cómo funciona · S-02</span><span>Para comercios · C-01</span></nav><div class="user-chip"><span>Iniciar sesión · A-01</span><span>P</span></div></header>
+        <div class="profile-hero"><span class="profile-caption">Imagen ilustrativa · datos de ejemplo</span></div>
+        <div class="profile-main"><div><div class="eyebrow">Panadería · Negocio verificado</div><h1 class="profile-name">Panadería La Espiga</h1><div class="profile-location">Av. Juárez 24 · Santiago Ixcuintla, Nayarit</div><div class="rating-summary"><span class="rating-number">4.8</span><span class="stars">★★★★★</span><span class="subtle">12 calificaciones</span></div><div class="subtle" style="margin-top:8px">Pan recién hecho cada mañana. Consulta disponibilidad con el negocio.</div></div><aside class="contact-panel"><div class="primary">Contactar por WhatsApp · P-01</div><div class="outline-btn">Cómo llegar · P-02</div><div class="outline-btn">Llamar al negocio · P-03</div><div class="outline-btn">Calificar negocio · P-04</div></aside></div>
+        <div class="profile-grid"><div class="section-head"><h2>Productos</h2><span class="subtle">Precios de ejemplo</span></div><div class="item"><div class="item-swatch"></div><strong>Pan de masa madre · $35 · Consultar</strong></div><div class="item"><div class="item-swatch"></div><strong>Conchas tradicionales · $12 · Consultar</strong></div><div class="item"><div class="item-swatch"></div><strong>Bolillo · $4 · Consultar</strong></div><div class="item"><div class="item-swatch"></div><strong>Pan de elote · $28 · Consultar</strong></div></div>
+      </div>
+
+      <div class="artboard mobile auth"><div class="device-status"><span>9:41</span><span>●●●  ▰</span></div><header class="mobile-header"><div class="wordmark"><div class="brand-mark"></div>PorAquí</div><span style="font-size:20px;color:#53615b">× A-04</span></header><div class="auth-modal"><div class="auth-card"><span class="verify-badge">Calificación verificada</span><h2>Inicia sesión para calificar</h2><p>Una cuenta por negocio ayuda a mantener calificaciones confiables. No mostraremos tu contacto públicamente.</p><div class="field"><label>Correo electrónico o teléfono</label><div class="input">Tu correo o número</div></div><div class="primary">Continuar · A-02</div><div class="separator">o</div><div class="outline-btn">Crear una cuenta · A-03</div><div class="notice-small"><span>✓</span><span>Verificamos tu contacto. Es privado.</span></div></div></div></div>
+
+    <div class="artboard desktop merchant" style="background:#f7f9f6">
+        <aside class="sidebar"><div class="wordmark"><div class="brand-mark"></div>PorAquí</div><div class="side-link">Resumen · M-01</div><div class="side-link selected">Mi catálogo · M-02</div><div class="side-link">Reportes · M-03</div><div class="side-link">Vigencia · M-04</div><div class="side-caption">Negocio</div><div class="side-link">Panadería La Espiga</div><div class="side-link">Ayuda y soporte</div><div class="side-link" style="position:absolute;bottom:24px">Cerrar sesión</div></aside>
+        <div class="panel-main"><div class="panel-top"><div><div class="eyebrow">Panel de comerciante</div><h2>Mi catálogo</h2><div class="subtle" style="margin-top:8px">Panadería La Espiga · Los cambios se reflejan en tu ficha pública.</div></div><div class="user-chip"><span>M</span><span>María · Administradora</span></div></div><div class="notice"><span>✓</span><span>Negocio verificado · Última confirmación de vigencia: hace 12 días</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px"><div class="panel-heading-meta"><strong style="font-size:17px">Productos y servicios</strong><span class="subtle">4 artículos</span></div><span class="primary">Agregar producto · M-05</span></div><div class="table"><div class="table-head"><span>Artículo</span><span>Precio</span><span>Disponibilidad</span><span>Acción</span></div><div class="table-row"><div class="product-name"><div class="thumb"></div><span>Pan de masa madre</span></div><span>$35.00</span><span class="status">Consultar · M-07</span><span class="edit-link">Editar · M-06</span></div><div class="table-row"><div class="product-name"><div class="thumb"></div><span>Conchas tradicionales</span></div><span>$12.00</span><span class="status">Disponible</span><span class="edit-link">Editar</span></div><div class="table-row"><div class="product-name"><div class="thumb"></div><span>Bolillo</span></div><span>$4.00</span><span class="status">Consultar</span><span class="edit-link">Editar</span></div><div class="table-row"><div class="product-name"><div class="thumb"></div><span>Pan de elote</span></div><span>$28.00</span><span class="status">Agotado</span><span class="edit-link">Editar</span></div></div><div class="subtle" style="margin-top:16px">Los precios y disponibilidad mostrados son datos ficticios para esta propuesta.</div></div>
+      </div>
+
+    <div class="artboard mobile rating-screen"><div class="device-status"><span>9:41</span><span>●●●  ▰</span></div><header class="mobile-header"><span style="color:#53615b;font-size:12px">Volver</span><div class="wordmark"><div class="brand-mark"></div>PorAquí</div></header><div class="mobile-content"><span class="verify-badge">Contacto verificado</span><h2 class="review-title">¿Cómo fue tu experiencia?</h2><p class="review-copy">Tu calificación ayuda a otras personas a descubrir negocios locales. No se publica tu identidad.</p><div class="review-business"><div class="thumb"></div><span>Panadería La Espiga · Santiago</span></div><label class="field-label">Elige de 1 a 5 estrellas · R-01</label><div class="star-picker"><span class="stars">★★★★☆</span></div><div class="privacy-note">Puedes cambiar tu calificación después. Una cuenta puede calificar cada negocio una vez. La actividad de moderación no se muestra en el perfil público.</div><div class="primary mobile-cta">Publicar calificación · R-02</div><div class="outline-btn" style="margin-top:8px">Cancelar · R-03</div></div><nav class="bottom-nav"><span>Explorar</span><strong>Calificar</strong><span>Cuenta</span></nav></div>
+
+    <div class="artboard mobile mobile-search"><div class="device-status"><span>9:41</span><span>●●●  ▰</span></div><header class="mobile-header"><div class="wordmark"><div class="brand-mark"></div>PorAquí</div><span>Cuenta · A-01</span></header><div class="mobile-content"><div class="mobile-kicker">Santiago Ixcuintla, Nayarit</div><h2 class="mobile-screen-title">¿Qué necesitas hoy?</h2><div class="mobile-searchbar"><span class="search-input">Buscar cerca · S-04</span></div><div class="mobile-small-action"><span class="chip active">Todo</span><span class="chip">Alimentos</span><span class="chip">Servicios · S-06</span></div><div class="mobile-results-head"><strong>Negocios cerca de ti</strong><span class="mobile-map-link">Ver mapa · S-07</span></div><div class="mobile-result"><div class="photo-mini"></div><div class="mobile-result-copy"><strong>Panadería La Espiga · S-08</strong><span class="subtle">Panadería · Centro</span><span class="stars">★★★★★ · 4.8</span></div></div><div class="mobile-result"><div class="photo-mini"></div><div class="mobile-result-copy"><strong>Abarrotes El Parque · S-08</strong><span class="subtle">Abarrotes · Centro</span><span class="stars">★★★★☆ · 4.5</span></div></div><div class="mobile-result"><div class="photo-mini"></div><div class="mobile-result-copy"><strong>Florería Nayar · S-08</strong><span class="subtle">Flores y regalos · Centro</span><span class="stars">★★★★★ · 5.0</span></div></div></div><nav class="bottom-nav"><strong>Explorar</strong><span>Mapa · S-07</span><span>Cuenta · A-01</span></nav></div>
+
+    <div class="artboard mobile mobile-profile"><div class="device-status"><span>9:41</span><span>●●● ▰</span></div><header class="mobile-header"><span>Volver · P-06</span><div class="wordmark"><div class="brand-mark"></div>PorAquí</div><span>Menú · P-07</span></header><div class="mobile-content"><div class="mobile-business-cover"><span class="photo-caption">Imagen ilustrativa</span></div><div class="mobile-kicker">Panadería · Verificado</div><h2 class="mobile-screen-title">Panadería La Espiga</h2><div class="profile-location">Av. Juárez 24 · Santiago Ixcuintla</div><div class="mobile-rating"><span class="stars">★★★★★</span><strong>4.8</strong><span>12 calificaciones</span></div><span class="primary">Contactar por WhatsApp · P-01</span><div class="mobile-action-row"><span class="outline-btn">Cómo llegar · P-02</span><span class="outline-btn">Llamar · P-03</span></div><div class="mobile-section"><div class="mobile-row"><h3>Productos</h3><span class="subtle">Precios de ejemplo</span></div><div class="mobile-product"><div class="thumb"></div><strong>Pan de masa madre · $35 · Consultar · P-05</strong></div><div class="mobile-product"><div class="thumb"></div><strong>Conchas tradicionales · $12 · Consultar</strong></div><div class="mobile-product"><div class="thumb"></div><strong>Bolillo · $4 · Consultar</strong></div></div><span class="primary mobile-cta">Calificar negocio · P-04</span></div></div>
+
+    <div class="artboard mobile mobile-merchant"><div class="device-status"><span>9:41</span><span>●●● ▰</span></div><header class="mobile-header"><span>Menú · M-08</span><div class="wordmark"><div class="brand-mark"></div>Mi catálogo</div><span>Cuenta · A-01</span></header><div class="mobile-content"><div class="mobile-kicker">Panadería La Espiga</div><div class="mobile-notice">Negocio verificado · Cambios públicos después de guardar.</div><div class="mobile-small-action"><strong>4 productos</strong><span class="primary">Agregar · M-05</span></div><div class="mobile-management-row"><div class="thumb"></div><div class="mobile-management-copy"><strong>Pan de masa madre</strong><span class="subtle">$35 · Consultar · M-07</span></div><span class="outline-btn">Editar · M-06</span></div><div class="mobile-management-row"><div class="thumb"></div><div class="mobile-management-copy"><strong>Conchas tradicionales</strong><span class="subtle">$12 · Disponible</span></div><span class="outline-btn">Editar</span></div><div class="mobile-management-row"><div class="thumb"></div><div class="mobile-management-copy"><strong>Bolillo</strong><span class="subtle">$4 · Consultar existencia</span></div><span class="outline-btn">Editar</span></div><div class="mobile-management-row"><div class="thumb"></div><div class="mobile-management-copy"><strong>Pan de elote</strong><span class="subtle">$28 · Agotado</span></div><span class="outline-btn">Editar</span></div></div><nav class="bottom-nav"><strong>Catálogo · M-02</strong><span>Reportes · M-03</span><span>Negocio · M-01</span></nav></div>
+</body>
+</html>
