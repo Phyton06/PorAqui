@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Liderazgo técnico + desarrolladores  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** Esta arquitectura sigue en borrador y no demuestra implementación. `20_politica_calificaciones_moderacion.md` contiene decisiones de base ratificadas por el líder del proyecto; `21_politica_ranking_destacados_analitica.md` recoge acuerdos de equipo sobre ranking y temas relacionados. Las validaciones pendientes siguen abiertas.
 
 ## Estado de la arquitectura
 **Arquitectura aceptada por el usuario (31-10-2026):** Next.js + TypeScript para frontend y NestJS + TypeScript como API independiente. Astro + API queda como alternativa evaluada, no seleccionada. No se eligen proveedor de hosting, identidad, Postgres administrado, objetos, mapas ni servicios gestionados. La aceptación es arquitectónica; no implica implementación ni validación práctica de seguridad, costos o recuperación.
@@ -51,12 +51,12 @@ flowchart TD
 - **Almacenamiento de objetos:** fotos optimizadas, validación de tipo y tamaño, metadatos en base de datos.
 - **Mapas:** mapas y coordenadas separadas de los datos comerciales; el proveedor debe permitir uso comercial.
 - **Recordatorios:** tareas programadas e idempotentes, límites para evitar envíos repetidos.
-- **Destacados y promociones:** selección manual o reglas iniciales basadas en categoría, ubicación, rotación, búsquedas y calificaciones; publicidad pagada como evolución posterior y claramente identificada.
-- **Calificaciones y moderación:** calificaciones públicas con controles de abuso; detección de picos, limitación temporal y revisión administrativa sin despublicación automática.
+- **Ranking y destacados:** relevancia de consulta primero; cobertura/calidad después; ubicación confirmada solo para distancia/ruta, no como desempate local por defecto; calificaciones visibles como señal secundaria. Rotación por impresiones agregadas entre candidatos comparables y curación manual con motivo/origen/periodo; no fijar pesos/ventanas hasta observar el piloto. Publicidad pagada fuera del MVP.
+- **Calificaciones y moderación:** aplicar la política 20: elegibilidad por contacto verificado, señales a revisión humana, sin pausas automáticas por volumen y ocultamiento individual solo después de revisión humana.
 
 ### Límite del MVP y evolución
 
-**MVP:** web pública móvil e indexable, búsqueda/listado/ficha, catálogo, panel de comerciante, autenticación y autorización por membresía, calificaciones públicas autenticadas y moderación. Recordatorios avanzados, automatización, publicidad pagada, analítica avanzada y clientes SaaS integrados son evolución posterior o P1; no justifican separar procesos en el MVP.
+**MVP:** web pública móvil e indexable, búsqueda/listado/ficha, catálogo, panel de comerciante, autenticación y autorización por membresía, calificaciones públicas autenticadas y moderación, recomendaciones contextuales a búsqueda/categoría y analítica mínima agregada sin perfiles persistentes. Recordatorios avanzados, analítica avanzada, automatización no calibrada, publicidad pagada y clientes SaaS integrados son evolución posterior o P1; no justifican separar procesos en el MVP.
 
 ## Decisiones técnicas aún abiertas
 | Tema | Alternativa estudiada | Prueba necesaria |
@@ -68,7 +68,7 @@ flowchart TD
 | Mapas | MapLibre + proveedor externo | Atribución, cobertura local y límites de uso |
 | Auth | Proveedor administrado / OIDC futuro | Invitaciones, revocación y multi-negocio |
 | Calificaciones | Públicas en MVP; requiere cuenta verificada para publicar según política definida | Moderación, apelación y calibración de umbrales con datos del piloto |
-| Destacados | Selección manual + reglas iniciales | Señales, rotación y transparencia; publicidad pagada posterior |
+| Destacados | Selección manual entre candidatos elegibles/pertinentes; rotación con impresiones agregadas entre comparables | Motivo/origen/periodo; ventana, frecuencia y límites se calibran con el piloto; publicidad pagada posterior |
 
 ## Límites entre componentes
 - **Datos privados no salen en endpoints públicos.**
@@ -116,7 +116,7 @@ Las calificaciones públicas pertenecen al alcance del MVP. La política de prod
 ### Alcance por fase
 
 - **MVP:** web pública indexable, búsqueda/listado/ficha, panel de comerciante, autenticación y autorización por membresía, catálogo, calificaciones públicas y moderación humana. No requiere microservicios. El mapa, almacenamiento, identidad gestionada y hosting siguen sujetos a decisiones pendientes.
-- **Evolución:** clientes adicionales e integraciones pueden justificar API pública/versionada y despliegue independiente; analítica/promociones pagadas y automatización se incorporan solo tras señales del piloto y decisiones de producto. No son requisitos para separar servicios desde el inicio.
+- **Evolución:** clientes adicionales e integraciones pueden justificar API pública/versionada y despliegue independiente; analítica avanzada, promociones pagadas y automatización de ranking se incorporan solo tras señales del piloto y decisiones de producto. La analítica mínima agregada y las recomendaciones contextuales forman parte de la orientación del MVP, sujetas a los requisitos de privacidad de `17_datos_privacidad.md` y `21_politica_ranking_destacados_analitica.md`. No son requisitos para separar servicios desde el inicio.
 
 ### Límites de seguridad y operación que no dependen del framework
 

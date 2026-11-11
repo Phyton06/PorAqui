@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Liderazgo de producto / técnico  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** Salvo lo marcado expresamente como ratificado por el líder del proyecto, este documento conserva requisitos en borrador; ver `20_politica_calificaciones_moderacion.md` y validar los detalles legales/operativos pendientes.
+> **Nota:** Salvo los acuerdos de equipo expresamente ratificados, este documento conserva requisitos en borrador. Las políticas de calificaciones y ranking están en `20_politica_calificaciones_moderacion.md` y `21_politica_ranking_destacados_analitica.md`; los detalles legales/operativos siguen pendientes.
 
 ## Objetivo de esta versión
 Entregar una **primera versión pública utilizable** de PorAquí para validar, en Santiago Ixcuintla, si comercios y consumidores encuentran valor en un catálogo centralizado y una búsqueda local. El calendario de estadía propuesto es enero–abril de 2027; alcance y fechas son **propuesta**, sujetos a revisión del equipo y universidad.
@@ -27,8 +27,8 @@ La versión estará lista para piloto cuando un negocio validado pueda publicar 
 | RF-011 | Reporte básico | Cliente informa posible cierre, agotado, ya no se vende o información incorrecta; queda pendiente de revisión. |
 | RF-012 | Moderación de reportes | Admin puede contactar al propietario, resolver y dejar historial. Ningún reporte aislado despublica automáticamente. |
 | RF-013 | Confirmar vigencia | Comerciante confirma «todo sigue igual» o edita su información; queda fecha de revisión. |
-| RF-014 | Registro de eventos básico | Medir búsquedas, aperturas de fichas y clics de contacto, minimizando datos personales. |
-| RF-019 | Portada de marketplace local | Mostrar categorías, negocios y productos/servicios destacados y espacios promocionales; destacados iniciales por selección del equipo o reglas transparentes. |
+| RF-014 | Analítica mínima del MVP | Medir de forma mínima y agregada búsquedas, resultados, vistas, impresiones y clics de contacto, minimizando datos personales. Las recomendaciones usan solo la consulta/categoría actual; no crear perfiles persistentes ni inferir compras individuales. Definir finalidad, aviso/base aplicable y retención antes de activar analítica; véase `21_politica_ranking_destacados_analitica.md`. |
+| RF-019 | Portada, ranking orgánico y destacados | Priorizar coincidencia directa, después cobertura/calidad del dato; ubicación confirmada solo para distancia/ruta, no como desempate local por defecto; calificaciones visibles como señal secundaria. Permitir rotación por impresiones agregadas entre candidatos comparables y selección manual elegible, con motivo/origen/periodo registrados y separación de orgánicos. Pesos y ventanas se calibran en el piloto; véase `21_politica_ranking_destacados_analitica.md`. |
 | RF-020 | Calificaciones públicas | **Elegibilidad ratificada por el líder del proyecto:** solo una cuenta con contacto verificado puede calificar. El borrador propone 1–5 estrellas, una calificación vigente por cuenta y negocio, editable, sin comentarios ni respuestas públicas; confirmar esos detalles en equipo antes de implementarlos. Mostrar promedio y cantidad de calificaciones visibles. Véase `20_politica_calificaciones_moderacion.md`. |
 | RF-021 | Protección contra review bombing | Los reportes/señales pasan a revisión humana; no se pausan nuevas calificaciones automáticamente por volumen ni se borran reseñas o despublica el negocio. Tras revisión humana, un moderador autorizado puede ocultar provisionalmente una calificación individual, avisar al autor en privado y admitir apelación dentro de 30 días; plazo sujeto a revisión legal. Véase `20_politica_calificaciones_moderacion.md`. |
 

@@ -24,6 +24,7 @@
 - [04 Flujos de usuario](04_flujos_usuario.md)
 - [19 Matriz de actores, permisos y flujos](19_matriz_actores_permisos_flujos.md)
 - [20 Política inicial de calificaciones y moderación](20_politica_calificaciones_moderacion.md)
+- [21 Política inicial de ranking, destacados y analítica](21_politica_ranking_destacados_analitica.md)
 
 ### Técnica
 - [05 Arquitectura](05_arquitectura.md)
@@ -52,7 +53,7 @@
 ## Notas importantes
 - «Catálogos gratuitos e ilimitados» se refiere al **modelo comercial**: no se cobra por cantidad de productos. La infraestructura requiere validaciones y controles de abuso.
 - PorAquí permite buscar sin registro. El alta del comercio **no es automática**: contacto por WhatsApp o visita presencial, verificación por NextWare e invitación.
-- Las calificaciones públicas forman parte del MVP según RF-020/RF-021; su elegibilidad y moderación se documentan en `20_politica_calificaciones_moderacion.md`. Los anuncios automatizados, POS, mandaditos y SSO multiplataforma **no pertenecen al MVP**.
+- Las calificaciones públicas forman parte del MVP según RF-020/RF-021; su política está en `20_politica_calificaciones_moderacion.md`. La dirección MVP de ranking, destacados, recomendaciones contextuales y analítica agregada está en `21_politica_ranking_destacados_analitica.md`; publicidad pagada, POS, mandaditos y SSO multiplataforma **no pertenecen al MVP**.
 - Los ejemplos de APIs y diagramas son conceptuales hasta ratificar arquitectura.
 - La evaluación documental de ADR-006 seleccionó arquitectura frontend/API, pero no equivale a elegir proveedores ni a implementar prototipos; asuntos abiertos están en 05, 14 y `DECISIONES_PENDIENTES.md`.
 - Los datos legales deben validarse con profesional competente antes de publicar el servicio.

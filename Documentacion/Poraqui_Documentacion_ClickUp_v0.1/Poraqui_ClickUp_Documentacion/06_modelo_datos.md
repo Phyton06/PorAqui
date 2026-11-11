@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Backend / datos  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** El esquema es conceptual; salvo lo marcado expresamente como ratificado por el líder del proyecto, sigue en borrador y requiere validación antes de implementar.
+> **Nota:** El esquema sigue siendo conceptual y requiere validación antes de implementar; `20_politica_calificaciones_moderacion.md` recoge decisiones de base ratificadas por el líder del proyecto y `21_politica_ranking_destacados_analitica.md` acuerdos de equipo sobre ranking y temas relacionados.
 
 ## Estado
 Esquema conceptual **por validar**. No representa tablas ni migraciones aprobadas. Separa entidades del MVP de módulos futuros.
@@ -42,9 +42,9 @@ erDiagram
 | `data_reports` | id, negocio_id, item_id opcional, motivo, detalle, estado, fecha, resuelto_por | Historial y antiabuso. |
 | `business_ratings` | id, negocio_id, usuario_id, puntuación, estado_moderación, creada_en, actualizada_en | Una calificación vigente por cuenta y negocio; 1–5 estrellas; sin comentario en MVP. Aplicar restricción única, proteger datos personales y auditar ediciones. |
 | `rating_moderation_events` | id, negocio_id, rating_id opcional, tipo, ventana_inicio, ventana_fin, estado, revisado_por, resuelto_en, apelar_hasta, eliminar_o_anonimizar_en | Propuesta conceptual para registrar reportes/señales, revisión humana, ocultamiento provisional individual y apelación. No hay umbrales automáticos ni retención de 12 meses ratificados; definir permisos y plazos antes de implementar. No borrar calificaciones ni despublicar el negocio automáticamente por volumen. |
-| `featured_placements` | id, recurso_tipo, recurso_id, categoría_id opcional, zona_id opcional, origen, inicio, fin, estado | Selección manual o por reglas; registrar motivo y rotación. Sin compra de posiciones en el MVP. |
+| `featured_placements` | id, recurso_tipo, recurso_id, categoría_id opcional, zona_id opcional, origen, motivo, inicio, fin, estado | Selección manual solo entre candidatos elegibles/pertinentes; registrar motivo, origen y periodo. Separar de resultados orgánicos; sin compra de posiciones en el MVP. Los detalles de acceso/revisión siguen por definir. |
 | `business_reminders` | id, negocio_id, canal, vence_en, enviado_en, estado | Idempotencia y preferencias. |
-| `events_aggregated` | tipo, recurso_id?, período, total | Preferir agregación frente a seguimiento personal permanente. |
+| `events_aggregated` | tipo, recurso_id?, período, total | Medir búsquedas/vistas/contactos e impresiones agregadas sin perfiles persistentes de visitantes; la ventana y granularidad se definen tras el piloto y revisión de privacidad. |
 
 ## Enumeraciones propuestas
 - Publicación negocio: `draft`, `pending_review`, `published`, `suspended`, `closed_confirmed`.

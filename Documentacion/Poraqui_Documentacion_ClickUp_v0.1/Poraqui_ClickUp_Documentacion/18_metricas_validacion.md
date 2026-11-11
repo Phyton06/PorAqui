@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Producto / operaciones / analítica  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** Este documento sigue en borrador salvo la dirección de analítica mínima agregada y recomendaciones contextuales ratificada por el equipo en `21_politica_ranking_destacados_analitica.md`; parámetros de medición y privacidad siguen pendientes.
 
 ## Objetivo
 Aprender si PorAquí resuelve búsquedas reales y crea valor para comercios; **no confundir registros o visitas con éxito del negocio**.
@@ -21,7 +21,7 @@ Aprender si PorAquí resuelve búsquedas reales y crea valor para comercios; **n
 - **Búsqueda útil:** consulta para la que la persona puede identificar al menos una opción pertinente y contactable; validar mediante muestra y pruebas, no solo contar resultados técnicamente coincidentes.
 - **Contacto atribuible:** clic en canal de contacto originado en PorAquí. *No equivale a venta.*
 - **Catálogo vigente:** confirmado o editado dentro del período acordado; no implica stock garantizado.
-- **Visitante recurrente:** volver bajo metodología compatible con privacidad y limitaciones de medición, no identidad inferida arbitrariamente.
+- **Visitante recurrente:** medir solo de forma agregada y compatible con privacidad; no asignar perfiles persistentes ni usar identidad individual para recomendaciones. El método requiere aprobación de privacidad antes de activarse.
 
 ## Esquema mínimo de eventos
 | Evento | Datos mínimos sugeridos | Precauciones |
@@ -29,10 +29,14 @@ Aprender si PorAquí resuelve búsquedas reales y crea valor para comercios; **n
 | `search_performed` | categoría/término normalizado cuando sea seguro, resultados_count, período | Evitar guardar texto libre sensible sin necesidad. |
 | `business_viewed` | negocio_id, fuente/campaña no personal | Evitar perfilado innecesario. |
 | `item_viewed` | item_id, fuente general | Agregar por período. |
-| `contact_clicked` | negocio_id, canal, contexto | Diferenciar clic de compra. |
+| `contact_clicked` | negocio_id, canal, contexto agregado | Diferenciar clic de compra; no perfilar persistentemente a la persona. |
+| `featured_impression_aggregated` | candidato_id, periodo, total de impresiones | Agregar antes de conservar; no guardar historial individual de exposición. Ventana y granularidad por definir con el piloto. |
 | `catalog_shared` | negocio_id, tipo de enlace | No registrar mensajes privados de Facebook/WhatsApp. |
 | `catalog_confirmed` | negocio_id, momento | Medir revisión, no inventario real. |
 | `report_resolved` | motivo y duración de resolución | Proteger datos del reportante. |
+
+## Recomendaciones y ranking
+En el MVP, dar recomendaciones contextuales solo a partir de la consulta/categoría actual; no crear perfiles persistentes ni inferir probabilidad individual de compra. La señal de calificación es secundaria. Calibrar pesos, sinónimos, normalización y rotación únicamente tras contar con línea base del piloto; no fijar metas numéricas por adelantado. Las mediciones son mínimas y agregadas, sujetas a los requisitos de privacidad antes de activarse.
 
 ## Experimentos iniciales
 - Observar búsquedas de productos/servicios en grupos accesibles legítimamente y clasificar necesidades sin recopilar datos personales.

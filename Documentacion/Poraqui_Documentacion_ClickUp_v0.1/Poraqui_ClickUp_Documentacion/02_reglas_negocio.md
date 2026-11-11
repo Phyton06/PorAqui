@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Responsable de producto + administración comercial  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** Salvo lo marcado expresamente como ratificado por el líder del proyecto, este documento conserva reglas en borrador; ver `20_politica_calificaciones_moderacion.md` y validar los detalles legales/operativos pendientes.
+> **Nota:** Salvo los acuerdos de equipo expresamente ratificados, este documento conserva reglas en borrador; ver `20_politica_calificaciones_moderacion.md` y `21_politica_ranking_destacados_analitica.md`. Los detalles legales/operativos siguen pendientes.
 
 ## Propósito
 Definir comportamientos que deben cumplirse con independencia de la tecnología empleada. Cada regla identificada puede convertirse en casos de prueba.
@@ -39,9 +39,9 @@ Definir comportamientos que deben cumplirse con independencia de la tecnología 
 - **RN-022:** «Todo sigue igual» actualiza la fecha de revisión, sin crear inventarios ficticios.
 
 ## Búsquedas, confianza y publicidad
-- **RN-023:** Una coincidencia patrocinada futura debe indicar **Patrocinado** de manera visible.
-- **RN-024:** Pagar publicidad no equivale a comprar mejores reseñas o falsear disponibilidad.
-- **RN-025:** Los resultados orgánicos se ordenan por criterios documentados de relevancia, cobertura y calidad del dato; no prometer distancia precisa sin ubicación confirmada.
+- **RN-023:** La publicidad pagada queda fuera del MVP. Si se aprueba para una fase posterior, cada ubicación debe indicar **Patrocinado** de manera visible y separarse del ranking orgánico.
+- **RN-024:** Pagar publicidad no equivale a comprar mejores reseñas, alterar el ranking orgánico ni falsear disponibilidad.
+- **RN-025:** En orgánicos, priorizar relevancia de la consulta; una coincidencia directa precede a otra más amplia. Entre resultados de relevancia comparable, considerar cobertura/calidad de la información pública. Usar ubicación confirmada para mostrar distancia/ruta, pero no como desempate local por defecto en la cobertura inicial. Las calificaciones visibles son una señal secundaria, nunca un multiplicador dominante. Pesos, sinónimos, normalización y límites quedan para calibración con datos del piloto; véase `21_politica_ranking_destacados_analitica.md`.
 - **RN-026:** La falta de disponibilidad verificada debe comunicarse como «Consultar existencia» o equivalente, no como «Disponible».
 - **RN-027:** Las calificaciones públicas forman parte del MVP. **Elegibilidad ratificada por el líder del proyecto:** solo cuentas con contacto verificado pueden calificar. El borrador propone una calificación vigente de 1 a 5 estrellas por cuenta y negocio, editable, sin comentarios ni respuestas públicas; confirmar unicidad, edición y esos detalles con el equipo antes de implementarlos.
 - **RN-031:** El perfil muestra promedio y cantidad de calificaciones visibles desde que exista al menos una; las calificaciones ocultas durante revisión no se incluyen.

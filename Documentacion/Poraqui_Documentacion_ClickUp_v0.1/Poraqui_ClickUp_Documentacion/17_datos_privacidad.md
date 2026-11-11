@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Administración + responsable de privacidad  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** Salvo lo marcado expresamente como ratificado por el líder del proyecto, este documento conserva reglas en borrador; los aspectos legales y operativos siguen sujetos a validación.
+> **Nota:** Salvo acuerdos de equipo expresamente ratificados, este documento conserva reglas en borrador; los requisitos legales y operativos de privacidad siguen sujetos a validación.
 
 ## Objetivo
 Diferenciar **información comercial pública** de datos personales, privados o confidenciales, y establecer controles sobre el uso de información recolectada por PorAquí.
@@ -24,7 +24,7 @@ Diferenciar **información comercial pública** de datos personales, privados o 
 - Minimizar datos y establecer finalidad específica, aviso de privacidad, base jurídica y mecanismos para ejercer derechos.
 - No extraer masivamente contenido o datos personales de grupos de Facebook.
 - Permitir corrección, despublicación y atención de solicitudes según obligaciones aplicables.
-- Separar identificadores individuales de analítica agregada cuando sea viable.
+- Separar identificadores individuales de analítica agregada cuando sea viable. Para el MVP, las recomendaciones usan solo la consulta/categoría actual; no crear perfiles persistentes ni inferir compras individuales. Medir búsquedas, vistas, impresiones y clics en forma mínima y agregada. Definir finalidad, aviso/base aplicable, retención y eliminación/anonimización antes de activar analítica. Véase `21_politica_ranking_destacados_analitica.md`.
 
 ## Moderación
 Reportes de contenido indebido, datos incorrectos, posible negocio cerrado y suplantación. Revisión proporcional, evidencia, historial, respuesta/impugnación y trazabilidad de quién cambia la ficha. No castigar automáticamente un negocio por un reporte aislado.
