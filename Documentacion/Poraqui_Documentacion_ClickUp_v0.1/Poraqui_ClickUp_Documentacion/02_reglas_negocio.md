@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Responsable de producto + administración comercial  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** Salvo lo marcado expresamente como ratificado por el líder del proyecto, este documento conserva reglas en borrador; ver `20_politica_calificaciones_moderacion.md` y validar los detalles legales/operativos pendientes.
 
 ## Propósito
 Definir comportamientos que deben cumplirse con independencia de la tecnología empleada. Cada regla identificada puede convertirse en casos de prueba.
@@ -43,11 +43,11 @@ Definir comportamientos que deben cumplirse con independencia de la tecnología 
 - **RN-024:** Pagar publicidad no equivale a comprar mejores reseñas o falsear disponibilidad.
 - **RN-025:** Los resultados orgánicos se ordenan por criterios documentados de relevancia, cobertura y calidad del dato; no prometer distancia precisa sin ubicación confirmada.
 - **RN-026:** La falta de disponibilidad verificada debe comunicarse como «Consultar existencia» o equivalente, no como «Disponible».
-- **RN-027:** Las calificaciones públicas forman parte del MVP. Solo cuentas con contacto verificado pueden calificar; cada cuenta mantiene una calificación vigente de 1 a 5 estrellas por negocio y puede editarla. No se permiten comentarios ni respuestas públicas en el MVP.
+- **RN-027:** Las calificaciones públicas forman parte del MVP. **Elegibilidad ratificada por el líder del proyecto:** solo cuentas con contacto verificado pueden calificar. El borrador propone una calificación vigente de 1 a 5 estrellas por cuenta y negocio, editable, sin comentarios ni respuestas públicas; confirmar unicidad, edición y esos detalles con el equipo antes de implementarlos.
 - **RN-031:** El perfil muestra promedio y cantidad de calificaciones visibles desde que exista al menos una; las calificaciones ocultas durante revisión no se incluyen.
-- **RN-032:** Una calificación reportada puede ocultarse provisionalmente para revisión humana. No habrá ocultamiento automático por volumen hasta observar tráfico del piloto y acordar/documentar sus umbrales y ventana; una señal activada será indicio para revisar, no prueba de abuso. La revisión no suspende el negocio ni elimina definitivamente la calificación por sí sola; toda decisión queda auditada.
-- **RN-033:** El usuario puede apelar privadamente el ocultamiento dentro de los 30 días posteriores al aviso. La apelación recibe revisión humana y resolución documentada.
-- **RN-034:** Las calificaciones ocultas y su historial de moderación se conservan por 12 meses desde la resolución del caso; después se eliminan o anonimizan conforme a la política de privacidad y obligaciones aplicables.
+- **RN-032:** Un reporte o señal de volumen no oculta automáticamente calificaciones ni pausa nuevas calificaciones. No hay umbrales numéricos ni ventana aprobados; un pico es señal para revisión humana, no prueba de abuso. Después de revisión humana, un moderador autorizado puede ocultar provisionalmente la calificación individual, registrando motivo, responsable y fecha/hora. No suspender ni despublicar automáticamente el negocio, ni borrar la calificación por volumen; auditar toda decisión.
+- **RN-033:** Si se oculta provisionalmente una calificación, avisar al autor en privado y permitir apelación privada dentro de los 30 días posteriores al aviso. La apelación recibe revisión humana y resolución documentada. El plazo fue ratificado por el líder del proyecto como decisión inicial y queda sujeto a revisión legal/documental.
+- **RN-034:** La calificación se restaura si la revisión no documenta infracción. Mantenerla oculta o aplicar otra medida requiere infracción y motivo documentados. La propuesta de conservar calificaciones ocultas e historial por 12 meses desde resolución no está ratificada; validar retención, eliminación/anonimización y obligaciones aplicables antes de implementarla.
 
 ## Acceso y datos
 - **RN-028:** Las fichas son públicas; datos internos, incidencias y métricas personales requieren permisos.

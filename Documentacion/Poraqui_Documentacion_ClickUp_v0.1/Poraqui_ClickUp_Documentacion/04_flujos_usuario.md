@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Liderazgo de producto / técnico  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** Salvo lo marcado expresamente como ratificado por el líder del proyecto, este documento conserva flujos en borrador; los aspectos legales/operativos siguen sujetos a validación.
 
 ## Propósito
 Describir recorridos principales de extremo a extremo para que producto, diseño, desarrollo y pruebas tengan la misma interpretación.
@@ -67,10 +67,15 @@ Describir recorridos principales de extremo a extremo para que producto, diseño
 3. La publicidad pagada queda para una etapa posterior y deberá identificarse claramente.
 
 ## FU-08. Calificar un negocio y proteger reseñas
-1. Cualquier visitante puede enviar una calificación para un negocio.
-2. El sistema aplica límites contra abuso y detecta incrementos anómalos con señales mínimas.
-3. Ante un pico sospechoso, limita temporalmente nuevas calificaciones y notifica a administración.
-4. Administración revisa y decide si reanuda o mantiene la limitación; el pico por sí solo no despublica ni elimina reseñas.
+1. Una persona consulta las calificaciones públicas; para enviar una debe iniciar sesión con una cuenta cuyo contacto esté verificado (elegibilidad ratificada por el líder del proyecto).
+2. El borrador del MVP propone una calificación de 1 a 5 estrellas por cuenta y negocio, editable, sin comentarios ni respuestas públicas; confirmar edición y duplicados en equipo antes de implementarlos.
+3. Un reporte o señal de anomalía genera una tarea en la cola interna; no pausa automáticamente nuevas calificaciones ni oculta una reseña por volumen solamente.
+4. Un moderador autorizado revisa el caso. Después de revisión humana puede ocultar provisionalmente la calificación individual y registra motivo, evidencia pertinente, responsable y fecha/hora.
+5. Si la oculta, avisa al autor en privado y permite apelación privada dentro de 30 días del aviso. El plazo está sujeto a revisión legal/documental.
+6. La apelación recibe revisión humana y una resolución registrada. Si no se documenta infracción, se restaura la calificación; toda medida que la mantenga oculta requiere infracción y motivo documentados. Las categorías de infracción y medidas finales siguen pendientes.
+7. La identidad del autor y los detalles de moderación no se publican. Una calificación oculta no se cuenta en promedio/conteo públicos; ninguna anomalía despublica el negocio ni elimina automáticamente reseñas.
+
+**Criterio:** el reporte o pico no produce efecto público automático; solo un moderador autorizado puede ocultar provisionalmente una calificación tras revisión humana. Véase `20_politica_calificaciones_moderacion.md`.
 
 ## Flujos futuros — no implementarlos todavía
 Reserva desde PorAquí hacia SaaS de barbería con SSO; compra integrada; inventario conectado; publicidad pagada/automatizada; mandaditos.

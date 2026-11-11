@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Liderazgo de producto / técnico  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** Salvo lo marcado expresamente como ratificado por el líder del proyecto, este documento conserva requisitos en borrador; ver `20_politica_calificaciones_moderacion.md` y validar los detalles legales/operativos pendientes.
 
 ## Objetivo de esta versión
 Entregar una **primera versión pública utilizable** de PorAquí para validar, en Santiago Ixcuintla, si comercios y consumidores encuentran valor en un catálogo centralizado y una búsqueda local. El calendario de estadía propuesto es enero–abril de 2027; alcance y fechas son **propuesta**, sujetos a revisión del equipo y universidad.
@@ -29,8 +29,8 @@ La versión estará lista para piloto cuando un negocio validado pueda publicar 
 | RF-013 | Confirmar vigencia | Comerciante confirma «todo sigue igual» o edita su información; queda fecha de revisión. |
 | RF-014 | Registro de eventos básico | Medir búsquedas, aperturas de fichas y clics de contacto, minimizando datos personales. |
 | RF-019 | Portada de marketplace local | Mostrar categorías, negocios y productos/servicios destacados y espacios promocionales; destacados iniciales por selección del equipo o reglas transparentes. |
-| RF-020 | Calificaciones públicas | Una cuenta con contacto verificado puede asignar de 1 a 5 estrellas a un negocio; mostrar promedio y cantidad de calificaciones visibles desde la primera calificación. Cada cuenta mantiene una calificación vigente por negocio y puede editarla; no hay comentarios ni respuestas públicas en el MVP. |
-| RF-021 | Protección contra review bombing | Ante actividad anómala, limitar temporalmente nuevas calificaciones y avisar a administración; un pico por sí solo no despublica negocios ni elimina reseñas. |
+| RF-020 | Calificaciones públicas | **Elegibilidad ratificada por el líder del proyecto:** solo una cuenta con contacto verificado puede calificar. El borrador propone 1–5 estrellas, una calificación vigente por cuenta y negocio, editable, sin comentarios ni respuestas públicas; confirmar esos detalles en equipo antes de implementarlos. Mostrar promedio y cantidad de calificaciones visibles. Véase `20_politica_calificaciones_moderacion.md`. |
+| RF-021 | Protección contra review bombing | Los reportes/señales pasan a revisión humana; no se pausan nuevas calificaciones automáticamente por volumen ni se borran reseñas o despublica el negocio. Tras revisión humana, un moderador autorizado puede ocultar provisionalmente una calificación individual, avisar al autor en privado y admitir apelación dentro de 30 días; plazo sujeto a revisión legal. Véase `20_politica_calificaciones_moderacion.md`. |
 
 ## Requisitos P1 si el P0 está estable
 | ID | Requisito | Criterio mínimo |

@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Backend / datos  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** El esquema es conceptual; salvo lo marcado expresamente como ratificado por el líder del proyecto, sigue en borrador y requiere validación antes de implementar.
 
 ## Estado
 Esquema conceptual **por validar**. No representa tablas ni migraciones aprobadas. Separa entidades del MVP de módulos futuros.
@@ -41,7 +41,7 @@ erDiagram
 | `invitations` | id, negocio_id, contacto_destino, token_hash, expiración, uso, creado_por | Nunca almacenar token de invitación en claro. |
 | `data_reports` | id, negocio_id, item_id opcional, motivo, detalle, estado, fecha, resuelto_por | Historial y antiabuso. |
 | `business_ratings` | id, negocio_id, usuario_id, puntuación, estado_moderación, creada_en, actualizada_en | Una calificación vigente por cuenta y negocio; 1–5 estrellas; sin comentario en MVP. Aplicar restricción única, proteger datos personales y auditar ediciones. |
-| `rating_moderation_events` | id, negocio_id, rating_id opcional, tipo, ventana_inicio, ventana_fin, estado, revisado_por, resuelto_en, apelar_hasta, eliminar_o_anonimizar_en | Registrar reportes/señales, umbral configurable activado, ocultamiento provisional, revisión y apelación; retener 12 meses desde resolución; no borrar calificaciones ni despublicar el negocio automáticamente. |
+| `rating_moderation_events` | id, negocio_id, rating_id opcional, tipo, ventana_inicio, ventana_fin, estado, revisado_por, resuelto_en, apelar_hasta, eliminar_o_anonimizar_en | Propuesta conceptual para registrar reportes/señales, revisión humana, ocultamiento provisional individual y apelación. No hay umbrales automáticos ni retención de 12 meses ratificados; definir permisos y plazos antes de implementar. No borrar calificaciones ni despublicar el negocio automáticamente por volumen. |
 | `featured_placements` | id, recurso_tipo, recurso_id, categoría_id opcional, zona_id opcional, origen, inicio, fin, estado | Selección manual o por reglas; registrar motivo y rotación. Sin compra de posiciones en el MVP. |
 | `business_reminders` | id, negocio_id, canal, vence_en, enviado_en, estado | Idempotencia y preferencias. |
 | `events_aggregated` | tipo, recurso_id?, período, total | Preferir agregación frente a seguimiento personal permanente. |
@@ -59,7 +59,7 @@ erDiagram
 ## Seguridad del modelo
 Separación entre vistas públicas y tablas internas; no exponer teléfonos privados distintos al contacto comercial autorizado; RLS si se elige base gestionada compatible; respaldos cifrados; IDs no equivalen a permisos.
 
-El promedio y el conteo públicos se calculan solo con calificaciones visibles. La identidad del calificador y los detalles de moderación no son públicos; la cuenta autenticada debe estar asociada a un contacto verificado.
+El promedio y el conteo públicos se calculan solo con calificaciones visibles. La identidad del calificador y los detalles de moderación no son públicos; solo cuentas asociadas a un contacto verificado pueden calificar (elegibilidad ratificada por el líder del proyecto). Reportes/señales no cambian el estado público automáticamente; un moderador autorizado puede ocultar provisionalmente una calificación solo después de revisión humana. Véase `20_politica_calificaciones_moderacion.md`.
 
 ## Evolución futura — NO desplegar en el MVP
 Campañas de publicidad pagada, `booking`, reservas, inventario POS, `inventory_sync_event`, pedidos y repartos, datos de interés publicitario y un proveedor OIDC multiaplicación. Documentar en migraciones futuras por separado.

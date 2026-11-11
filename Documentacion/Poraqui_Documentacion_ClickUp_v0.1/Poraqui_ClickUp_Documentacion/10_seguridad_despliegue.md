@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Responsable técnico / operaciones  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** Salvo las reglas de calificaciones expresamente ratificadas por el líder del proyecto y detalladas en `20_politica_calificaciones_moderacion.md`, este documento conserva controles en borrador y requiere validación antes de producción.
 
 ## Objetivo
 Proteger cuentas, catálogos, negocios y reputación desde el piloto, sin depender de que el proveedor gratuito resuelva todas las obligaciones de seguridad.
@@ -16,7 +16,7 @@ Proteger cuentas, catálogos, negocios y reputación desde el piloto, sin depend
 5. **Datos privados:** HTTPS, credenciales fuera del repositorio, permisos de cloud mínimos, backups protegidos y acceso restringido.
 6. **Abuso:** rate limits para reportes, contacto, invitaciones, login y búsqueda; registro suficiente para investigar incidentes.
 7. **Dependencias:** actualizaciones y revisión de alertas; control de cambios con PR.
-8. **Calificaciones:** umbrales configurables y documentados antes del lanzamiento; una señal de volumen activa revisión humana y ocultamiento provisional según política, nunca borrado definitivo ni despublicación automática. Registrar cambios y revisiones, proteger identificadores de cuenta y aplicar retención definida.
+8. **Calificaciones:** una señal de volumen activa revisión humana, pero no pausa nuevas calificaciones ni oculta automáticamente una calificación. Solo después de revisión humana puede un moderador autorizado ocultar provisionalmente una calificación individual, con motivo y auditoría; no borrar por volumen ni despublicar automáticamente el negocio. No hay umbrales ni ventanas numéricas aprobados para automatización; cualquier propuesta futura requiere evidencia del piloto, aprobación explícita y controles contra abuso. Proteger identificadores de cuenta y validar antes de producción los plazos de apelación y retención.
 
 ## Entornos y publicación
 - **Development:** datos ficticios o anonimizados.

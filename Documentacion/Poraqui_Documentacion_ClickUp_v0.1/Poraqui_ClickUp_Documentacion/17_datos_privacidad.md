@@ -3,7 +3,7 @@
 > **Producto:** PorAquí · **Empresa:** NextWare  
 > **Estado:** Borrador para revisión · **Responsable propuesto:** Administración + responsable de privacidad  
 > **Versión:** 0.1 · **Actualizado:** 2026-10-24 · **Cobertura:** Santiago Ixcuintla, Nayarit  
-> **Nota:** No es una decisión aprobada hasta que el equipo la valide y actualice el estado.
+> **Nota:** Salvo lo marcado expresamente como ratificado por el líder del proyecto, este documento conserva reglas en borrador; los aspectos legales y operativos siguen sujetos a validación.
 
 ## Objetivo
 Diferenciar **información comercial pública** de datos personales, privados o confidenciales, y establecer controles sobre el uso de información recolectada por PorAquí.
@@ -30,7 +30,11 @@ Diferenciar **información comercial pública** de datos personales, privados o 
 Reportes de contenido indebido, datos incorrectos, posible negocio cerrado y suplantación. Revisión proporcional, evidencia, historial, respuesta/impugnación y trazabilidad de quién cambia la ficha. No castigar automáticamente un negocio por un reporte aislado.
 
 ## Calificaciones — MVP
-El MVP admite calificaciones de 1 a 5 estrellas por cuentas con contacto verificado; cada cuenta conserva una calificación vigente por negocio y puede editarla. No se publican comentarios ni respuestas del comerciante. Se muestra promedio y cantidad de calificaciones visibles desde la primera. La cuenta y los datos de moderación no se muestran públicamente. Una calificación reportada puede ocultarse provisionalmente mientras la revisa una persona. No habrá ocultamiento automático por volumen hasta observar tráfico del piloto y acordar/documentar umbrales y ventana; activarlos solo iniciará revisión, no probará abuso. Las decisiones quedan auditadas y el usuario puede apelar privadamente dentro de 30 días desde el aviso; la apelación recibe revisión humana. Calificaciones ocultas e historial de moderación se conservan 12 meses desde resolución y luego se eliminan o anonimizan de acuerdo con la política aprobada y obligaciones aplicables. Consultar asesoría legal para políticas y avisos.
+**Elegibilidad ratificada por el líder del proyecto:** solo una cuenta con contacto verificado puede calificar. La documentación propone 1–5 estrellas, una calificación vigente por cuenta y negocio editable, sin comentarios ni respuestas públicas; confirmar edición y duplicados con el equipo antes de implementar. Mostrar promedio y conteo de calificaciones visibles; no publicar la identidad del autor ni datos de moderación.
+
+Un reporte o señal entra a revisión humana y no produce por sí solo pausa de nuevas calificaciones ni cambio público. Después de revisar, un moderador autorizado puede ocultar provisionalmente una calificación individual y debe registrar motivo, evidencia pertinente, responsable y fecha/hora. El autor recibe aviso privado y puede apelar privadamente dentro de 30 días del aviso; el plazo fue ratificado por el líder del proyecto como decisión inicial, pendiente de revisión legal/documental. La apelación recibe revisión humana y resolución registrada. Restaurar si no se documenta infracción; mantener oculta o aplicar otra medida requiere infracción y motivo documentados. Las categorías de infracción y medidas finales siguen pendientes. No eliminar automáticamente calificaciones ni despublicar el negocio por anomalías.
+
+La propuesta de conservar calificaciones ocultas e historial de moderación durante 12 meses desde la resolución no está ratificada; validar retención, eliminación/anonimización y obligaciones aplicables con la persona responsable de privacidad y asesoría competente antes de implementarla. Véase `20_politica_calificaciones_moderacion.md`.
 
 ## Conservación y eliminación
 Crear una matriz por dato con finalidad, responsable, ubicación, plazo y eliminación/anonimización. Evitar recopilar identificaciones oficiales si no hay necesidad justificada y un procedimiento seguro.

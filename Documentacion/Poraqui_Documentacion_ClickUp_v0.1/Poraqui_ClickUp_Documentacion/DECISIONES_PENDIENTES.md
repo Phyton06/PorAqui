@@ -13,13 +13,13 @@ Estas cuestiones quedaron deliberadamente abiertas para no inventar requisitos.
 | DP-07 | Reportes anónimos o autenticados y antiabuso | Producto + seguridad | 02, 03, 17 |
 | DP-08 | Plazos de retención de evidencias y datos | Responsable de privacidad | 10, 16, 17 |
 | DP-09 | Política de disponibilidad/desactualización | Producto | 02, 18 |
-| DP-10 | Observar tráfico del piloto y acordar/documentar umbrales numéricos de abuso y ventana antes de habilitar ocultamiento automático | Producto + seguridad | 02, 06, 10, 17 |
+| DP-10 | No hay pausas ni ocultamiento automáticos por volumen en la política inicial. Observar tráfico del piloto; cualquier propuesta futura de automatización requiere evidencia, umbrales/ventana aprobados, controles contra abuso y prueba/aceptación explícita. No ocultar una calificación individual sin revisión humana. | Producto + seguridad | 02, 06, 10, 17, 20 |
 | DP-11 | Mensajería/WhatsApp oficial e incorporación | Operaciones | 04, 16 |
 | DP-12 | Métricas mínimas, volumen de referencia del piloto y límites presupuestales para comparar costos | Fundadores | 15, 18 |
 | DP-13 | Propiedad de dominio, repositorios y credenciales | Fundadores | 10, 13 |
 | DP-14 | Convenio de estadía, propiedad intelectual y documentos legales de operación | Fundadores + asesor legal | 00, 13, 17 |
-| DP-15 | Procedimiento operativo y legal de apelación/retención de calificaciones y moderación | Producto + seguridad | 02, 06, 10, 17 |
-| DP-16 | Ventana/umbrales de picos, duración de limitación temporal y revisión administrativa | Producto + seguridad | 04, 06, 10, 18 |
+| DP-15 | Validar legal y operativamente el aviso privado, el plazo inicial de apelación de 30 días ratificado por el líder del proyecto, las medidas finales de moderación y los plazos de retención/eliminación/anonimización (la propuesta de 12 meses no está ratificada) | Producto + seguridad + responsable de privacidad | 02, 06, 10, 17, 20 |
+| DP-16 | La política inicial descarta límites temporales automáticos por picos. Si el piloto justifica proponerlos en el futuro, decidir evidencia, ventana/umbrales, duración, responsables, revisión y apelación antes de habilitarlos; hoy la respuesta a señales es revisión humana y el ocultamiento provisional de una calificación individual exige revisión previa. | Producto + seguridad | 04, 06, 10, 18, 20 |
 | DP-17 | Fórmula inicial de destacados, peso de señales, rotación y selección manual | Producto | 05, 06, 18 |
 | DP-18 | Usuario coordina implementación/verificación de RPO máximo de 24 horas con respaldos al menos diarios; Adrian Gallardo (Chimi) es suplente designado; habilitar/verificar accesos, acordar retención, RTO y periodicidad de restauración aislada | Usuario + Adrian Gallardo (Chimi) + líder técnico | 05, 10 |
 | DP-19 | Criterios y responsable para autorizar pruebas funcionales comparativas tras cerrar la evaluación documental | Fundadores + líder técnico | 05, 14 |
