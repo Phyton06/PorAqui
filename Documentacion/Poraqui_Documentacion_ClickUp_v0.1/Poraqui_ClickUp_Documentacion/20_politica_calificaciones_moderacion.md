@@ -13,6 +13,10 @@
 - **Resultado de revisión:** restaurar la calificación si no se documenta una infracción. Mantener oculta o aplicar otra medida solo con una infracción documentada y una decisión motivada. Las categorías de infracción y las medidas finales permitidas siguen pendientes de ratificación.
 - **Agregados públicos:** mostrar promedio y cantidad de calificaciones visibles; excluir del cálculo las ocultas provisionalmente. No mostrar la identidad del autor ni detalles internos de moderación.
 
+## Límite de alcance seleccionado en esta sesión
+
+El usuario seleccionó aplazar los filtros y acciones automáticas de moderación de calificaciones fuera del MVP. Reconsiderarlos únicamente después del piloto, con evidencia y aprobación explícita; no fijar umbrales numéricos ahora. Esta nota registra la selección del usuario en esta sesión, no la atribuye al equipo o al líder y no acredita implementación.
+
 ## Flujo operativo
 
 ```text
